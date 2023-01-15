@@ -25,8 +25,9 @@ jobs:
           sudo curl -L https://github.com/libvips/libvips/releases/download/v$LIBVIPS_VERSION/vips-$LIBVIPS_VERSION.tar.gz > vips-$LIBVIPS_VERSION.tar.gz
           sudo tar xf vips-$LIBVIPS_VERSION.tar.gz
           sudo ./vips-$LIBVIPS_VERSION/configure --enable-debug=no --without-python --without-magick && make && make install && ldconfig
-          sudo apt-get remove -y curl automake build-essential
-          sudo apt-get autoremove -y
-          sudo apt-get autoclean
-          sudo apt-get clean
+
+      - name: compile binary
+        run: |
+          make build
       
+
